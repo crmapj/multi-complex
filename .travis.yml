@@ -16,7 +16,7 @@ after_success:
   - docker build -t crmapj007/multi-server ./server
   - docker build -t crmapj007/multi-worker ./worker
 
-  - echo "$DOCKER_PASSWORD | docker login -u "$DOCKER_ID" --password-stdin"
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin"
 
   - docker push crmapj007/multi-client
   - docker push crmapj007/multi-nginx
