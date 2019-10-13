@@ -22,3 +22,17 @@ after_success:
   - docker push crmapj007/multi-nginx
   - docker push crmapj007/multi-server
   - docker push crmapj007/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: eu-west-2
+  app: docker-react
+  env: multiDocker-env
+  bucket_name: elasticbeanstalk-eu-west-2-673896612194
+  bucket_path: docker-multi
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  access_key_id:
+    secure: $AWS_SECRET_KEY
+
